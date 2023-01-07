@@ -1,0 +1,49 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd ">
+
+
+    <changeSet id="2022-12-27" author="Konrad">
+        <createTable tableName="doctor">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(45)"/>
+            <column name="specialization" type="varchar(45)"/>
+            <column name="username" type="varchar(45)"/>
+            <column name="password" type="varchar(255)"/>
+            <column name="role" type="varchar(45)"/>
+            <column name="enabled" type="boolean"/>
+        </createTable>
+
+        <createTable tableName="patient">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(45)"/>
+            <column name="email" type="varchar(45)"/>
+            <column name="username" type="varchar(45)"/>
+            <column name="verification_code" type="varchar(255)"/>
+            <column name="password" type="varchar(255)"/>
+            <column name="role" type="varchar(45)"/>
+            <column name="enabled" type="boolean"/>
+        </createTable>
+        <createTable tableName="visit">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="date" type="date"/>
+            <column name="doctor_id" type="bigint"/>
+            <column name="patient_id" type="bigint"/>
+
+        </createTable>
+
+    </changeSet>
+
+
+</databaseChangeLog>

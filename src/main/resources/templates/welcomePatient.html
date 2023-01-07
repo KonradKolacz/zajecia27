@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title style="text-align:center"> Welcome </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Container wrapper -->
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#">
+                    <img
+                            src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+                            height="30"
+                            alt=""
+                            loading="lazy"/> DPApp
+                </a>
+
+                <!-- Toggle button -->
+                <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown ml-auto">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false">Covid</a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Important information</a>
+                                <a class="dropdown-item" href="#">News</a>
+                                <a class="dropdown-item" href="#">Tests</a>
+                                <a class="dropdown-item" href="#">Help</a>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                    <!-- Search form -->
+                    <form class="d-flex input-group w-auto">
+                        <input
+                                type="search"
+                                class="form-control"
+                                placeholder="Type query"
+                                aria-label="Search"/>
+                        <button
+                                class="btn btn-outline-primary"
+                                type="button"
+                                data-mdb-ripple-color="dark">
+                            Search
+                        </button>
+                    </form>
+
+
+                    <!--                   photo profile dropdown-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center"
+                               href="#"
+                               id="navbarDropdownMenuLink"
+                               role="button"
+                               data-mdb-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg"
+                                     class="rounded-circle"
+                                     height="22"
+                                     alt=""
+                                     loading="lazy"/>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">My profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Container wrapper -->
+                </div>
+            </nav>
+
+            <hr>
+<!--            <h1 style="text-align:center" th:text=" Welcome + ${#authentication.getPrincipal().getName()}"></h1>-->
+
+            <div class="alert alert-success">
+                <strong>Success!</strong><a style="text-align:center"> You have signed up successfully! </a>.
+            </div>
+
+
+            <pre>
+
+
+           </pre>
+
+            <button type="button" class="btn btn-outline-primary btn-lg btn-block"><a style="color: dark;"
+                                                                                      th:href="@{http://localhost:8080/user/visits/book_form}">BOOK
+                VISIT APPOINTMENT</a></button>
+            <button type="button" class="btn btn-outline-primary btn-lg btn-block"><a style="color: dark;"
+                                                                                      th:href="@{http://localhost:8080/user/visits/{id} (id=${#authentication.getPrincipal().getId()})}">CHECK
+                YOUR PLANNED VISITS</a></button>
+
+            <button type="button" class="btn btn-outline-primary btn-lg btn-block"><a style="color: dark;"
+                                                                                      th:href="@{http://localhost:8080/logout}">LOGOUT</a>
+            </button>
+
+
+            <pre>
+
+
+            </pre>
+
+            <div class="container">
+                <div class="jumbotron">
+                    <p>Telephone Patient Information: 800 190 590</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

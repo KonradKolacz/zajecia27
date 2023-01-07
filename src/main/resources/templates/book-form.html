@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Visit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 style="text-align:center"> Book appointment for your Visit</h2>
+            <hr>
+            <form th:action="@{http://localhost:8080/user/visit/add}"
+                  th:object="${visit}" method="post">
+                <div class="form-row">
+
+                    <div class="col-md-6 form-group">
+                        <label>Visit Date</label>
+                        <input required type="text" class="form-control" placeholder="yyyy-MM-dd"
+                               th:field="*{date}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Doctor</label>
+                        <select required type="text" class="form-control" th:field="*{doctor}">
+                            <option th:each="d : ${doctors}" th:value="${d.id}" th:text="${d.name}">
+                            </option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="col-md-6 form-group">
+                        <input required type="hidden" class="form-control" th:field="*{patient}"
+                               th:value="${#authentication.getPrincipal().getId()}">
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save Visit</button>
+
+            </form>
+
+            <pre>
+
+
+            </pre>
+
+            <div class="container">
+                <div style="text-align:center" class="jumbotron jumbotron-fluid">
+                    <h1 style="background-color:powderblue;"> Getting Started with a New Doctor</h1>
+                    <hr>
+                    <p>Your first meeting is a good time to talk with the doctor and the office staff about some
+                        communication basics.</p>
+
+                    <h2 style="background-color:powderblue;"> Introduce yourself. </h2>
+                    <p>When you see the doctor and office staff, introduce yourself and let them know by what name you
+                        prefer to be called.
+                        For example: “Hello, my name is Mrs. Martinez,” or “Good morning, my name is Bob Smith. Please
+                        call me Bob.”</p>
+
+                    <hr>
+                    <h3 style="background-color:powderblue;"> Ask how the office runs.</h3>
+                    <p>Learn what days are busiest and what times are best to call. Ask what to do if there is an
+                        emergency, or if you need a doctor when the office is closed.</p>
+
+                    <hr>
+                    <h4 style="background-color:powderblue;"> Share your medical history.</h4>
+                    <p>Tell the doctor about your illnesses, operations, medical conditions, and other doctors you see.
+                        You may want to ask the doctor to send you a copy of the medical history form before your visit
+                        so you can fill it out at home, where you have the time and information you need to complete it.
+                        If you have problems understanding how to fill out any of the forms, ask for help. Some
+                        community organizations provide this kind of help.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<button type="button" class="btn btn-outline-primary btn-lg btn-block"><a style="color: dark;"
+                                                                          th:href="@{http://localhost:8080/user/welcome}">GO
+    BACK</a>
+</button>
+
+</body>
+</html>

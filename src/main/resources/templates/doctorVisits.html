@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Patients Visits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<h1 style="text-align:center"> Your Scheduled Visits </h1>
+<hr>
+
+<table id="example" class="table table-hover table-dark" style="width: 100%">
+
+    <thead>
+    <tr bgcolor="gray">
+        <th scope="col">Date</th>
+        <th scope="col">Patient</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="visit : ${visits}">
+        <a th:href="@{/admin/visits/{id} (id=${#authentication.getPrincipal().getId()})}">
+            <td th:text="${visit.date}">visitDate</td>
+            <td th:text="${visit.patient.name}">patient</td>
+        </a>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+
+            <button type="button" class="btn btn-outline-primary btn-lg btn-block"><a
+                    th:href="@{http://localhost:8080/admin/welcome}">BACK TO HOME PAGE</a></button>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

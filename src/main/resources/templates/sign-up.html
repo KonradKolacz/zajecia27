@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Patient Account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Patient Registration</h2>
+            <form th:action="@{http://localhost:8080/user/register}" th:object="${patientCommand}" method="post">
+                <div class="form-row">
+
+                    <div class="col-md-6 form-group">
+                        <label>Name</label>
+                        <input required type="text" class="form-control" id="name" name="name" th:field="*{name}">
+                    </div>
+<!--                    <div class="col-md-6 form-group">-->
+<!--                        <label>pesel</label>-->
+<!--                        <input required type="text" class="form-control" id="pesel" name="pesel" th:field="*{pesel}">-->
+<!--                        <div th:if="${errorMessage}">-->
+<!--                            <div th:text="${errorMessage}"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6 form-group">-->
+<!--                        <label>Birth Date</label>-->
+<!--                        <input required type="text" class="form-control" placeholder="yyyy-MM-dd" id="join_datepicker" th:field="*{birthDate}">-->
+<!--                    </div>-->
+                    <div class="col-md-6 form-group">
+                        <label>Email</label>
+                        <input required type="text" class="form-control" id="email" name="email" th:field="*{email}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Username</label>
+                        <input required type="text" class="form-control" id="username" name="username" th:field="*{username}">
+                    </div>
+                    <div style="text-align:center" class="col-md-6 form-group">
+                        <label>Password</label>
+                        <input  required type="text" class="form-control" id="password" name="password" th:field="*{password}" >
+
+                    </div>
+<!--                    <div style="text-align:center" class="col-md-6 form-group">-->
+<!--                        <label>Password</label>-->
+<!--                        <input  required type="text" class="form-control" id="password" name="password" placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" th:field="*{password}" >-->
+<!--                        <div class="requirements">-->
+<!--                            Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="col-md-6 form-group">-->
+<!--                        <input required type="hidden" class="form-control" id="id_patient" name="id_patient" th:object="${lastPatientId}" th:value="${lastPatientId}">-->
+<!--                    </div>-->
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<div style="text-align:center">
+    <a th:href="@{http://localhost:8080/app}">Go back</a>
+</div>
+</body>
+</html>

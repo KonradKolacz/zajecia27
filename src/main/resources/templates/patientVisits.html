@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Patients Visits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<h1 style="text-align:center"> Your Scheduled Visits </h1>
+<hr>
+
+<table id="example" class="table table-hover table-dark" style="width: 100%">
+
+    <thead>
+    <tr bgcolor="gray">
+        <th scope="col">Date</th>
+        <th scope="col">Doctor</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="visit : ${visits}">
+        <a th:href="@{/user/visits/{id} (id=${#authentication.getPrincipal().getId()})}">
+            <td th:text="${visit.date}">visitDate</td>
+            <td th:text="${visit.doctor.name}">doctor</td>
+            <td>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block" ><a
+                        th:href="@{http://localhost:8080/user/visits/delete/{id} (id=${visit.id})}">DELETE</a></button>
+            </td>
+        </a>
+    </tr>
+    </tbody>
+</table>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 style="text-align:center"> Delete Visit</h2>
+            <hr>
+
+            <form  th:action="@{/user/delete2/{id} (id=${visit1.id})}" th:object="${visit1}" method="get">
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <label>Id visit</label>
+                        <input required type="text" class="form-control"
+                               th:field="*{id}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Delete Visit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+
+            <button type="button" class="btn btn-outline-primary btn-lg btn-block"><a
+                    th:href="@{http://localhost:8080/user/welcome}">BACK TO HOME PAGE</a></button>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

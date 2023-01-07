@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Doctor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Doctor Registration</h2>
+            <form th:action="@{http://localhost:8080/admin}" th:object="${doctorCommand}" method="post">
+                <label>Name:</label>
+                <input type="text" th:field="*{name}" required/><br>
+                <label>Specialization:</label>
+                <input type="text" th:field="*{specialization}" required/><br>
+                <label>Username:</label>
+                <input type="text" th:field="*{username}" required/><br>
+                <label>Password:</label>
+                <input type="text" th:field="*{password}" required/><br>
+                <input type="submit" value="Add doctor"/>
+                <input type="reset">
+
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<div style="text-align:center">
+    <a th:href="@{http://localhost:8080/admin/welcome}">Go back</a>
+</div>
+</body>
+</html>

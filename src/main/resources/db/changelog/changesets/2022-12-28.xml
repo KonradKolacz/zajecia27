@@ -1,0 +1,59 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd ">
+
+
+    <changeSet id="2022-12-28" author="Konrad">
+        <insert tableName="doctor">
+            <column name="name" value="konrad"/>
+            <column name="specialization" value="internist"/>
+            <column name="username" value="konrad123"/>
+            <column name="password" value="$2a$12$DHdIwHT1WT6RDm16.1uMoORSVtJ5XvrS6MWjwfa1kS/t.2Tm2JwqG"/>
+            <column name="role" value="ROLE_ADMIN"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="doctor">
+            <column name="name" value="Michal"/>
+            <column name="specialization" value="internist"/>
+            <column name="username" value="michal123"/>
+            <column name="password" value="$2a$12$JbLoGJ6VrrbQGBK0Vyda7eQSZ9EuOk1LZie6/Etf9g3muh1Ohf9aa"/>
+            <column name="role" value="ROLE_ADMIN"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="patient">
+            <column name="name" value="Michal"/>
+            <column name="email" value="patient1"/>
+            <column name="username" value="patient1"/>
+            <column name="verification_code" value="12345"/>
+            <column name="password" value="$2a$12$mv6S9ipUgDlzMmOLEBKBZOWdn3JOLEmdxMyIGXNurwDHry4DXFOTi"/>
+            <column name="role" value="ROLE_USER"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="patient">
+            <column name="name" value="Zosia"/>
+            <column name="email" value="patient2"/>
+            <column name="username" value="patient2"/>
+            <column name="verification_code" value="123456789"/>
+            <column name="password" value="$2a$12$Y924nI8iLZWykTOBfZqv0OVSUgN9/B/9P4/iiF/XNwNrrPUluFqra"/>
+            <column name="role" value="ROLE_USER"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="visit">
+            <column name="date" value="2023-01-11"/>
+            <column name="doctor_id" value="1"/>
+            <column name="patient_id" value="1"/>
+        </insert>
+        <insert tableName="visit">
+            <column name="date" value="2023-01-12"/>
+            <column name="doctor_id" value="1"/>
+            <column name="patient_id" value="2"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

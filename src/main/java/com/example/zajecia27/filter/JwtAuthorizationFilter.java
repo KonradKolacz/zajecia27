@@ -13,6 +13,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
@@ -38,7 +39,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     //1 - client daje zapytanie do serwera. tutaj sprawdzam czy ma juz tokena , jesli tak to zwracam response.
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException, IOException {
         UsernamePasswordAuthenticationToken authentication = getAuthentication(request); //1
         if (authentication == null) {
             filterChain.doFilter(request, response);

@@ -2,6 +2,7 @@ package com.example.zajecia27.config;
 
 import com.example.zajecia27.filter.JsonObjectAuthenticationFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -69,13 +70,13 @@ public class SecurityConfig {
     }
 
     //for jwt
-    public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
-        JsonObjectAuthenticationFilter authenticationFilter = new JsonObjectAuthenticationFilter(objectMapper);
-        authenticationFilter.setAuthenticationSuccessHandler(successHandler);
-        authenticationFilter.setAuthenticationFailureHandler(failureHandler);
-        authenticationFilter.setAuthenticationManager(super.authenticationManager());
-        return authenticationFilter;
-    }
+//    public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
+//        JsonObjectAuthenticationFilter authenticationFilter = new JsonObjectAuthenticationFilter(objectMapper);
+//        authenticationFilter.setAuthenticationSuccessHandler(successHandler);
+//        authenticationFilter.setAuthenticationFailureHandler(failureHandler);
+//        authenticationFilter.setAuthenticationManager(super.authenticationManager());
+//        return authenticationFilter;
+//    }
 
 // KIEDYŚ
 //    @Override
